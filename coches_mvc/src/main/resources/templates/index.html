@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Listado de coches</h1>
+
+<div th:each="coche : ${listaCoches}" style="width: 100px; border: 1px solid; margin-bottom: 15px">
+    <p th:text="'Marca: ' + ${coche.marca}"></p>
+    <p th:text="'Modelo: ' + ${coche.modelo}"></p>
+    <p th:text="'Color: ' + ${coche.color}"></p>
+    <p th:text="'Año: ' + ${coche.anio}"></p>
+    <a th:href="@{/coche/editar/{id}(id=${coche.id})}">Editar Coche</a>
+</div>
+<a th:href="@{/coche/nuevo}">Agregar Nuevo Coche</a>
+</body>
+</html>

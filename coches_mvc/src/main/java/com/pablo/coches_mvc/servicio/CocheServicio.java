@@ -5,18 +5,28 @@ import com.pablo.coches_mvc.repositorio.CocheRepositorio;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.Year;
+
 @Service
 public class CocheServicio {
     @Autowired
     private CocheRepositorio cocheRepositorio;
 
-    public Iterable<Coche> listaCoches(){
+    public Iterable<Coche> listaCoches() {
         return cocheRepositorio.findAll();
     }
 
-    public void guardarCoche(Coche libro){
-        cocheRepositorio.save(libro);
+    public boolean guardarCoche(Coche coche) {
+        int anioActual = Year.now().getValue();
+        if (coche.getAnio() < 1990 || coche.getAnio() > anioActual) {
+            return false;
+        } else {
+            cocheRepositorio.save(coche);
+            return true;
+        }
     }
 
-
+    public Coche obtenerPorId(int id) {
+        return cocheRepositorio.findById(id).orElseThrow();
+    }
 }
