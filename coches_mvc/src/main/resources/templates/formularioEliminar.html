@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1 th:text="'Seguro que quieres eliminar el ' + ${coche.marca} + ' ' + ${coche.modelo} + ' con ID: ' + ${coche.id} "></h1>
+<form th:action="@{/coche/eliminado/{id}(id=${coche.id})}" method="post">
+    <button type="submit">Si</button>
+</form>
+<a th:href="@{/}">No</a>
+</body>
+</html>

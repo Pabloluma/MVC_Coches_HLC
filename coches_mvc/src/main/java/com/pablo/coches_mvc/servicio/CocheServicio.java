@@ -29,4 +29,8 @@ public class CocheServicio {
     public Coche obtenerPorId(int id) {
         return cocheRepositorio.findById(id).orElseThrow();
     }
+
+    public void eliminarCoche(int id) {
+        cocheRepositorio.deleteById(id);
+    }
 }

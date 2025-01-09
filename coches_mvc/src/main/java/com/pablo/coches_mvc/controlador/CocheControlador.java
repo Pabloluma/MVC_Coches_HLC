@@ -49,4 +49,19 @@ public class CocheControlador {
         model.addAttribute("coche", coche);
         return "formulario";
     }
+
+    @PostMapping("/coche/eliminar/{id}")
+    public String mostrarformularioEliminarCoche(@PathVariable int id, Model model) {
+        Coche coche = cocheServicio.obtenerPorId(id);
+        model.addAttribute("coche", coche);
+        return "formularioEliminar";
+    }
+
+    @PostMapping("/coche/eliminado/{id}")
+    public String eliminadoCoche(@PathVariable int id) {
+        cocheServicio.eliminarCoche(id);
+        return "redirect:/";
+    }
+
+
 }

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
@@ -13,6 +13,9 @@
     <p th:text="'Color: ' + ${coche.color}"></p>
     <p th:text="'Año: ' + ${coche.anio}"></p>
     <a th:href="@{/coche/editar/{id}(id=${coche.id})}">Editar Coche</a>
+    <form th:action="@{/coche/eliminar/{id}(id=${coche.id})}" method="post">
+        <button type="submit">Eliminar</button>
+    </form>
 </div>
 <a th:href="@{/coche/nuevo}">Agregar Nuevo Coche</a>
 </body>
