@@ -1,8 +1,7 @@
 package com.pablo.coches_mvc.controlador;
 
 import com.pablo.coches_mvc.entidades.Coche;
-import com.pablo.coches_mvc.servicio.CocheServicio;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.pablo.coches_mvc.servicio.CocheServiceImp;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,8 +11,12 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
 public class CocheControlador {
-    @Autowired
-    CocheServicio cocheServicio;
+//   Conecta con la implementación del servicio para poder hacer uso de sus métodos
+    public CocheServiceImp cocheServicio;
+
+    public CocheControlador(CocheServiceImp cocheServicio) {
+        this.cocheServicio = cocheServicio;
+    }
 
     @GetMapping("/")
     public String getCoches(Model model) {

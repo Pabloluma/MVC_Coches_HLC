@@ -13,7 +13,18 @@ public class Coche {
     private String marca;
     private String modelo;
     private String color;
+    private String matricula;
     private int anio;
+
+    public Coche() {
+    }
+
+    public Coche(String marca, String matricula, String color) {
+        this.marca = marca;
+        this.matricula = matricula;
+        this.color = color;
+    }
+
 
     public int getId() {
         return id;
@@ -47,6 +58,13 @@ public class Coche {
         this.color = color;
     }
 
+    public String getMatricula() {
+        return matricula;
+    }
+
+    public void setMatricula(String matricula) {
+        this.matricula = matricula;
+    }
     public int getAnio() {
         return anio;
     }
@@ -54,4 +72,6 @@ public class Coche {
     public void setAnio(int anio) {
         this.anio = anio;
     }
+
+
 }

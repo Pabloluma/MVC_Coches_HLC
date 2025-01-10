@@ -7,7 +7,8 @@
 <body>
 <h1>Listado de coches</h1>
 
-<div th:each="coche : ${listaCoches}" style="width: 100px; border: 1px solid; margin-bottom: 15px">
+<div th:each="coche : ${listaCoches}" style="width: 150px; border: 1px solid; margin-bottom: 15px">
+    <p th:text="'Matricula: ' + ${coche.matricula}"></p>
     <p th:text="'Marca: ' + ${coche.marca}"></p>
     <p th:text="'Modelo: ' + ${coche.modelo}"></p>
     <p th:text="'Color: ' + ${coche.color}"></p>
